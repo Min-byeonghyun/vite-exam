@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router";
 import "./App.css";
 import Home from "./pages/index-page";
-import CounterPage from "./pages/couter-page";
+import CounterPage from "./pages/counter-page";
 
 function App() {
   return (
