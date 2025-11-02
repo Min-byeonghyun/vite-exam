@@ -6,33 +6,13 @@
       "isDone": true
     },
     {
-      "id": "2",
+      "id": "a74f",
       "content": "Todo 2",
-      "isDone": true
+      "isDone": false
     },
     {
-      "id": "3",
+      "id": "8db9",
       "content": "Todo 3",
-      "isDone": false
-    },
-    {
-      "id": "5dde",
-      "content": "id",
-      "isDone": false
-    },
-    {
-      "id": "b23e",
-      "content": "Todo4",
-      "isDone": false
-    },
-    {
-      "id": "0cd1",
-      "content": "새로운 할 일",
-      "isDone": false
-    },
-    {
-      "id": "022e",
-      "content": "두번째할일",
       "isDone": false
     }
   ]
