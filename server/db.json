@@ -3,17 +3,17 @@
     {
       "id": "1",
       "content": "Todo 1",
-      "isDone": true
+      "isDone": false
     },
     {
       "id": "a74f",
       "content": "Todo 2",
-      "isDone": false
+      "isDone": true
     },
     {
       "id": "8db9",
       "content": "Todo 3",
-      "isDone": false
+      "isDone": true
     }
   ]
 }
