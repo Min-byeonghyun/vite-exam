@@ -9,8 +9,8 @@ export function useUpdateTodoMutation() {
   return useMutation({
     mutationFn: updateTodo,
     onMutate: async (updatedTodo) => {
-      await queryClient.cancelQueries({queryKey : QUERY_KEYS.todo.list})
-      const prevTodos = queryClient.getQueryData<Todo[]>(QUERY_KEYS.todo.list);
+      await queryClient.cancelQueries({ queryKey: QUERY_KEYS.todo.list });
+      const prevTodos = queryClient.getQueryData<Todo[]>(QUERY_KEYS.todo.list); // 캐시데이터 가져오기
       queryClient.setQueryData<Todo[]>(QUERY_KEYS.todo.list, (prevTodos) => {
         if (!prevTodos) return [];
         return prevTodos.map((prevTodo) =>
@@ -20,7 +20,7 @@ export function useUpdateTodoMutation() {
         );
       });
       return {
-        prevTodos,
+        prevTodos, //캐시데이터 반환
       };
     },
     onError: (error, variable, context) => {
@@ -31,10 +31,10 @@ export function useUpdateTodoMutation() {
         );
       }
     },
-    onSettled : () => {
+    onSettled: () => {
       queryClient.invalidateQueries({
-        queryKey : QUERY_KEYS.todo.list
-      })
-    }
+        queryKey: QUERY_KEYS.todo.list,
+      });
+    },
   });
 }
