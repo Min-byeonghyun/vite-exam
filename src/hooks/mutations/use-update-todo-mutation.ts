@@ -34,7 +34,7 @@ export function useUpdateTodoMutation() {
     onSettled: () => {
       queryClient.invalidateQueries({
         queryKey: QUERY_KEYS.todo.list,
-      });
+      }); // 요청 종료 후 refetch (서버에서 데이터 가져오기)
     },
   });
 }
