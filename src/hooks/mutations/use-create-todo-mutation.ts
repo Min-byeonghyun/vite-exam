@@ -11,10 +11,19 @@ export function useCreateTodoMutation() {
     onMutate: () => {}, //요청 발송
     onSettled: () => {}, // 요청 종료
     onSuccess: (newTodo) => {
-      queryClient.setQueryData<Todo[]>(QUERY_KEYS.todo.list, (prevTodos) => {
-        if (!prevTodos) return [newTodo];
-        return [...prevTodos, newTodo];
-      });
+      //newTodo => createTodo에 return 값
+      queryClient.setQueryData<Todo>(
+        QUERY_KEYS.todo.detail(newTodo.id),
+        newTodo,
+      );
+      queryClient.setQueryData<string[]>(
+        QUERY_KEYS.todo.list,
+        (prevTodoIds) => {
+          //prevTodoIds => QUERY_KEYS.todo.list의 현재 캐싱 값
+          if (!prevTodoIds) return [newTodo.id];
+          return [...prevTodoIds, newTodo.id];
+        },
+      );
     }, // 요청 성공
     onError: (error) => {
       window.alert(error.message);
