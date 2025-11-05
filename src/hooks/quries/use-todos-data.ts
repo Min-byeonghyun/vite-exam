@@ -11,8 +11,8 @@ export function useTodosData() {
 
       todos.forEach((todo) => {
         queryClient.setQueryData<Todo>(QUERY_KEYS.todo.detail(todo.id), todo);
-      });
-      return todos.map((todo) => todo.id);
+      }); //side Effect 순회 하면서 ["todos", "detail" , "id"] 에 todo 객체 저장용
+      return todos.map((todo) => todo.id); // todos  배열 순회하면서 id ex) [1,2,3] id 만 저장
     },
     queryKey: QUERY_KEYS.todo.list,
   });
